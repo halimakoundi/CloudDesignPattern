@@ -1,6 +1,8 @@
 ﻿using System;
 using CircuitBreakerPattern;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 
 namespace CircuitBreakerPatternTest
 {
@@ -20,6 +22,7 @@ namespace CircuitBreakerPatternTest
         }
 
         [Test]
+        [ExpectedException(typeof(CircuitBreakerOpenException))]
         public void CircuitBreakerFailsToExecuteAction()
         {
             var circuitBreaker = new CircuitBreakerImpl();
@@ -42,8 +45,6 @@ namespace CircuitBreakerPatternTest
             {
                 greeting = "Hello Circuit Breaker!";
             });
-
-            Assert.That(greeting, Is.EqualTo("Hello"));
         }
     }
 }

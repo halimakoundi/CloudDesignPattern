@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace CircuitBreakerPattern
 {
     [Serializable]
-    internal class CircuitBreakerOpenException : Exception
+    public class CircuitBreakerOpenException : Exception
     {
         public CircuitBreakerOpenException()
         {
