@@ -2,9 +2,9 @@
 {
     public class CacheAside
     {
-        public bool PutDataInStore(User user)
+        public bool PutDataInStore(CachedData data)
         {
-            if (user.Id == "testUserId1")
+            if (data.Id == "testUserId1" || data.Id == "testBookId1")
             {
                 return false;
             }

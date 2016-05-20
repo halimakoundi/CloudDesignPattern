@@ -32,5 +32,14 @@ namespace CacheAsideTests
 
             Assert.That(hasPutUserInStore, Is.False);
         }
+
+        [Test]
+        public void not_add_book_to_store_if_book_already_in_store()
+        {
+            var cacheAside=new CacheAside();
+            var book=new Book {Id="testBookId1"};
+            var hasPutBookInStore= cacheAside.PutDataInStore(book);
+            Assert.That(hasPutBookInStore, Is.False);
+        }
     }
 }

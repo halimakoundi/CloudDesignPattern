@@ -1,8 +1,8 @@
 ﻿namespace CacheAsidePattern
 {
-    public class User : CachedData
+    public class Book : CachedData
     {
-        public User()
+        public Book()
         {
         }
 
