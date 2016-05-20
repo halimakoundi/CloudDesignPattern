@@ -11,15 +11,26 @@ namespace CacheAsideTests
     public class CacheAsideShould
     {
         [Test]
-        public void add_user_to_store_if_data_is_not_in_store()
+        public void add_user_to_store_if_user_is_not_in_store()
         {
             var user = new User();
             var cacheAside = new CacheAside();
 
             var putUserInStore = cacheAside.PutDataInStore(user);
 
-            Assert.That(putUserInStore, Is.EqualTo(true));
+            Assert.That(putUserInStore, Is.True);
         }
 
+        [Test]
+        public void not_add_user_to_store_if_user_already_in_store()
+        {
+            var cacheAside = new CacheAside();
+
+            var user = new User { Id = "testUserId1" };
+
+            var hasPutUserInStore = cacheAside.PutDataInStore(user);
+
+            Assert.That(hasPutUserInStore, Is.False);
+        }
     }
 }
