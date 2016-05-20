@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using CacheAsidePattern;
+using NUnit.Framework;
 /*
  When data is not in store, the data is added to the store
  When data is in store, the data is retrieved from the store
@@ -10,7 +11,7 @@ namespace CacheAsideTests
     public class CacheAsideShould
     {
         [Test]
-        public void add_user_to_store_when_data_is_not_in_store()
+        public void add_user_to_store_if_data_is_not_in_store()
         {
             var user = new User();
             var cacheAside = new CacheAside();
@@ -19,5 +20,6 @@ namespace CacheAsideTests
 
             Assert.That(putUserInStore, Is.EqualTo(true));
         }
+
     }
 }

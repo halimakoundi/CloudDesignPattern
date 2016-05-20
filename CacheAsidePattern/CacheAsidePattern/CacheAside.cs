@@ -1,11 +1,7 @@
-﻿namespace CacheAsideTests
+﻿namespace CacheAsidePattern
 {
     public class CacheAside
     {
-        public CacheAside()
-        {
-        }
-
         public bool PutDataInStore(User user)
         {
             return true;

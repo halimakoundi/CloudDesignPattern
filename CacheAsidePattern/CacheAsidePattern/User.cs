@@ -1,4 +1,4 @@
-﻿namespace CacheAsideTests
+﻿namespace CacheAsidePattern
 {
     public class User
     {
