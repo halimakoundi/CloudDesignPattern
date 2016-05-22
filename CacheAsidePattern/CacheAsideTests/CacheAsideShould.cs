@@ -1,4 +1,5 @@
-﻿using CacheAsidePattern;
+﻿using System;
+using CacheAsidePattern;
 using NUnit.Framework;
 /*
  When data is not in store, the data is added to the store
@@ -21,25 +22,18 @@ namespace CacheAsideTests
             Assert.That(putUserInStore, Is.True);
         }
 
-        [Test]
-        public void not_add_user_to_store_if_user_already_in_store()
-        {
+        [TestCase(typeof(User), "testUserId1", false)]
+        [TestCase(typeof(Book), "testBookId1", false)]
+        public void not_add_data_to_the_cache_if_data_already_cached(
+                    Type type, string dataId, bool expected)
+        {                                               
             var cacheAside = new CacheAside();
+            var data = (CachedData)Activator.CreateInstance(type);
+            data.Id = dataId;
 
-            var user = new User { Id = "testUserId1" };
-
-            var hasPutUserInStore = cacheAside.PutDataInStore(user);
-
-            Assert.That(hasPutUserInStore, Is.False);
-        }
-
-        [Test]
-        public void not_add_book_to_store_if_book_already_in_store()
-        {
-            var cacheAside=new CacheAside();
-            var book=new Book {Id="testBookId1"};
-            var hasPutBookInStore= cacheAside.PutDataInStore(book);
-            Assert.That(hasPutBookInStore, Is.False);
+            var hasPutUserInStore = cacheAside.PutDataInStore(data);
+                
+            Assert.That(hasPutUserInStore, Is.EqualTo(expected));
         }
     }
 }
