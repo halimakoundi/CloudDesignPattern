@@ -4,10 +4,8 @@
     {
         public bool PutDataInStore(CachedData data)
         {
-            if (data.Id == "testUserId1" || data.Id == "testBookId1")
-            {
-                return false;
-            }
+            var cache= new Cache ();
+            var cachedData = data.GetCachedData();
             return true;
         }
 
