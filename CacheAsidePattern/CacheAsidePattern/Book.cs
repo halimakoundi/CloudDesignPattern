@@ -2,11 +2,14 @@
 {
     public class Book : CachedData
     {
-        public Book()
+        public string Id { get; set; }
+        public string Title { get; set; }
+
+        public bool CacheData()
         {
+            return new Cache().CacheBook(this);
         }
 
-        public string Id { get; set; }
         public CachedData GetCachedData()
         {
             return new Cache().GetCachedBook(this.Id);

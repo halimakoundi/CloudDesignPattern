@@ -5,6 +5,6 @@ namespace CacheAsidePattern
     public interface CachedData
     {
         string Id { get; set; }
-        CachedData GetCachedData();
+        bool CacheData();
     }
 }

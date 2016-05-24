@@ -2,11 +2,14 @@
 {
     public class User : CachedData
     {
-        public User()
+        public string Id { get; set; }
+        public string Name { get; set; }
+
+        public bool CacheData()
         {
+            return new Cache().CacheUser(this);
         }
 
-        public string Id { get; set; }
         public CachedData GetCachedData()
         {
             return new Cache().GetCachedUser(this.Id);

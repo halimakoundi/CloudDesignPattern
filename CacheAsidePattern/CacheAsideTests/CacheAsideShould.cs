@@ -14,26 +14,14 @@ namespace CacheAsideTests
         [Test]
         public void add_user_to_store_if_user_is_not_in_store()
         {
-            var user = new User();
-            var cacheAside = new CacheAside();
+            var cacheAside = new DataAccessApi();
+            var userId= "testUserId1";
 
-            var putUserInStore = cacheAside.PutDataInStore(user);
-
-            Assert.That(putUserInStore, Is.True);
+            var user = cacheAside.GetUserById(userId);
+            
+            Assert.That(user, Is.Not.Null);
         }
 
-        [TestCase(typeof(User), "testUserId1", false)]
-        [TestCase(typeof(Book), "testBookId1", false)]
-        public void not_add_data_to_the_cache_if_data_already_cached(
-                    Type type, string dataId, bool expected)
-        {                                               
-            var cacheAside = new CacheAside();
-            var data = (CachedData)Activator.CreateInstance(type);
-            data.Id = dataId;
 
-            var hasPutUserInStore = cacheAside.PutDataInStore(data);
-                
-            Assert.That(hasPutUserInStore, Is.EqualTo(expected));
-        }
     }
 }
