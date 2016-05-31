@@ -25,8 +25,8 @@ namespace CacheAsideTests
         {
             var cache = new Cache();
             var userId = "testUserId1";
-
             var dataAccessApi = new DataAccessApi();
+
             var user = dataAccessApi.GetUserById(userId);
 
             Assert.That(user, Is.Not.Null);
@@ -36,6 +36,7 @@ namespace CacheAsideTests
             dataAccessApi.SaveData(user);
 
             var cachedUser = cache.GetCachedUser(userId);
+
             Assert.That(cachedUser.Name, Is.Null);
         }
     }
