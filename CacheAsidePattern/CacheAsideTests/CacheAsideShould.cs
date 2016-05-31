@@ -1,4 +1,6 @@
-﻿using CacheAsidePattern;
+﻿using System;
+using System.Diagnostics;
+using CacheAsidePattern;
 using NUnit.Framework;
 /*
  When data is fetched and not in store, the data is added to the store, then the data is retrieved from the store
@@ -6,9 +8,17 @@ using NUnit.Framework;
  */
 namespace CacheAsideTests
 {
+
+
     [TestFixture]
     public class CacheAsideShould
     {
+        [SetUp]
+        public void Init()
+        {
+            Process.Start(@"C:\Users\Halima\Documents\GitHub\CloudDesignPattern\CacheAsidePattern\packages\redis-64.3.0.501\tools\redis-server.exe");
+        }
+
         [Test]
         public void add_user_to_cache_if_user_is_not_in_cache()
         {
