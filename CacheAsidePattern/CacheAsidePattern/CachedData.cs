@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CacheAsidePattern
+﻿namespace CacheAsidePattern
 {
     public interface CachedData
     {

@@ -3,7 +3,7 @@
     public class User : CachedData
     {
         public string Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = "Unknown User";
 
         public bool CacheData()
         {
