@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Book.cs" />
     <Compile Include="Cache.cs" />
     <Compile Include="DataAccessApi.cs" />
     <Compile Include="CachedData.cs" />

@@ -4,5 +4,6 @@
     {
         string Id { get; set; }
         bool CacheData();
+        void RemoveFromCache();
     }
 }

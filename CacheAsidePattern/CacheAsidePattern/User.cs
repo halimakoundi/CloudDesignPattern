@@ -10,9 +10,14 @@
             return new Cache().CacheUser(this);
         }
 
+        public void RemoveFromCache()
+        {
+            new Cache().RemoveCachedData(Id);
+        }
+
         public CachedData GetCachedData()
         {
-            return new Cache().GetCachedUser(this.Id);
+            return new Cache().GetCachedUser(Id);
         }
     }
 }
