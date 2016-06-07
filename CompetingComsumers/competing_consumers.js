@@ -17,7 +17,7 @@ var app = function () {
 var startApplication = function () {
     if (!queue)
         queue = [];
-    setInterval(consumer, 1);
+    setInterval(consumer, 100);
 }
 
 var getQueue = function () {
