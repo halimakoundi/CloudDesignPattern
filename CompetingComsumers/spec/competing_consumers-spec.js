@@ -20,17 +20,6 @@ describe("Messages are added to the queue when new request is sent", function ()
             expect(queue).toBeDefined();
         });
 
-    it("should add messages to the queue when request is received",
-        function () {
-            var application = competingComsumers.application();
-            application.start();
-            var request = function () { console.log("Request execution"); };
-
-            application.submit(request);
-            var queueSize = application.queueSize();
-
-            expect(queueSize).toBe(1);
-        });
 
     it("should process messages from the queue as they get added",
     function () {
